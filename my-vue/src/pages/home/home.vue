@@ -3,16 +3,24 @@
   <div>
     <Hheader></Hheader>
     <swiper></swiper>
-    <div>123</div>
+    <icons></icons>
+    <cakes></cakes>
+    <play></play>
   </div>
 </template>
 <script>
 import Hheader from './components/Hheader'
 import swiper from './components/swiper'
+import icons from './components/icons'
+import cakes from './components/cakes'
+import play from './components/play'
 export default {
   components:{
     Hheader,
-    swiper
+    swiper,
+    icons,
+    cakes,
+    play
   }
 }
 </script>
