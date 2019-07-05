@@ -8,16 +8,26 @@
           <i class="iconfont">&#xe60a;</i>
           <input type="text" placeholder="请输入关键字">
         </div>
+        
         <div class="city">
-          三亚<i class="iconfont">&#xe665;</i>
+            <router-link to="/city">
+              <span>{{city}}</span> <i class="iconfont">&#xe665;</i>
+            </router-link>
         </div>
     </div>
   </div>
 </template>
 <script>
-  
+export default {
+  props:{
+    city:String
+  }
+}
 </script>
 <style scoped>
+.city a{
+  color: #fff
+}
   .header{
     /* width: 7.5rem; */
     display: flex;

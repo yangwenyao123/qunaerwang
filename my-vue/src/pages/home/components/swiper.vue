@@ -1,8 +1,8 @@
 <template>
   <swiper :options="swiperOption" ref="mySwiper">
     <!-- slides -->
-    <swiper-slide v-for="(item,index) in swiperImg" :key="index">
-      <img class="swiper-img" :src="item.img" alt="">
+    <swiper-slide v-for="(item,index) in swiperList" :key="index">
+      <img class="swiper-img" :src="item.imgUrl" alt="">
     </swiper-slide>
     
     <!-- Optional controls -->
@@ -14,13 +14,11 @@ export default {
    data() {
       return {
         swiperOption: {
-          // pagination:".swiper-pagination"
+
       pagination: {
           el: '.swiper-pagination',
         },
-          // some swiper options/callbacks
-          // 所有的参数同 swiper 官方 api 参数
-          // ..
+        
         },
         swiperImg:[
           {
@@ -42,6 +40,9 @@ export default {
         ]
       }
     },
+    props:{
+      swiperList:Array
+    }
 }
 </script>
 

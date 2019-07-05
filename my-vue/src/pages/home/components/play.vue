@@ -1,25 +1,24 @@
 <template>
   <div class="content">
-    <div class="item">
+    <div class="item" v-for="(item,index) in weekendList" :key="index">
       <div class="top">
-        <img src="http://pic38.nipic.com/20140301/6608733_073013180000_2.jpg" alt>
+        <img :src="item.imgUrl" alt>
       </div>
       <div class="bottom">
-        <h2 class="margin-bottom">温泉有水上乐园</h2>
-        <p>泡泡温泉,吹吹海风,感觉人生达到了高潮</p>
+        <h2 class="margin-bottom">{{item.title}}</h2>
+        <p>{{item.desc}}</p>
       </div>
     </div>
-    <div class="item">
-      <div class="top">
-        <img src="http://pic38.nipic.com/20140301/6608733_073013180000_2.jpg" alt>
-      </div>
-      <div class="bottom">
-        <h2 class="margin-bottom">温泉有水上乐园</h2>
-        <p>泡泡温泉,吹吹海风,感觉人生达到了高潮</p>
-      </div>
-    </div>
+    
   </div>
 </template>
+<script>
+export default {
+  props:{
+    weekendList:Array
+  }
+}
+</script>
 <style scoped>
 .content{
   padding-top: .5rem;

@@ -2,13 +2,13 @@
   <div class="content">
       <div class="title">热销推荐</div>
       <ul>
-        <li v-for="(item,index) in list" :key="index">
+        <li v-for="(item,index) in recommendList" :key="index">
           <div class="left">
-            <img :src="item.img" alt="">
+            <img :src="item.imgUrl" alt="">
           </div>
           <div class="right">
             <h2 class="margin-bottom">{{item.title}}</h2>
-            <p class="margin-bottom">浪漫大连首站,浪漫的海洋主题乐园</p>
+            <p class="margin-bottom">{{item.desc}}</p>
             <div class="margin-top"><span class="price">￥</span><strong>99</strong><span class="qi">起</span></div>
           </div>
         </li>
@@ -18,30 +18,12 @@
 </template>
 <script>
 export default {
+  props:{
+    recommendList:Array
+  },
   data(){
     return {
-      list:[
-        {
-          img:"http://img1.imgtn.bdimg.com/it/u=3893146502,314297687&fm=26&gp=0.jpg",
-          title:'杨文耀',
-
-        },
-           {
-          img:"http://img1.imgtn.bdimg.com/it/u=3893146502,314297687&fm=26&gp=0.jpg",
-          title:'周敏',
-
-        },
-           {
-          img:"http://img1.imgtn.bdimg.com/it/u=3893146502,314297687&fm=26&gp=0.jpg",
-          title:'周敏',
-
-        },
-           {
-          img:"http://img1.imgtn.bdimg.com/it/u=3893146502,314297687&fm=26&gp=0.jpg",
-          title:'杨文耀',
-
-        },
-      ]
+      
     }
   }
 }

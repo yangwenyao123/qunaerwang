@@ -3,8 +3,8 @@
     <swiper>
       <swiper-slide v-for="(page,index) in pages" :key="index">
         <div class="icon" v-for="(item,index) in page" :key="index">
-          <img :src="item.icon" alt>
-          <div class="text">{{item.text}}</div>
+          <img :src="item.imgUrl" alt>
+          <div class="text">{{item.desc}}</div>
         </div>
       </swiper-slide>
     </swiper>
@@ -12,95 +12,37 @@
 </template>
 <script>
   export default {
+    props:{
+      iconList:Array
+    },
     data() {
       return {
-        iconlist: [
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-            text: "热门境地"
-          },
-          {
-            icon:
-              "http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png",
-            text: "热门境地"
-          }
-        ],
-        pages: []
+     
       };
     },
-    computed: {},
-    methods: {
-      fn() {
+
+    computed: {
+      pages:function() {
+         console.log(123);
+         
         const pages = [];
-        this.iconlist.forEach((item, index) => {
+        this.iconList.forEach((item, index) => {
           var index = Math.floor(index / 8);
           if (!pages[index]) {
             pages[index] = [];
           }
           pages[index].push(item);
         });
-        this.pages = pages;
+        return pages 
       }
     },
 
+    methods: {
+       
+    },
+
     mounted() {
-      this.fn();
+     
     }
   };
 </script>
