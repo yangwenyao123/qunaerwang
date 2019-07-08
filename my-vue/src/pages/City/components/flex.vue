@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+
 export default {
   data(){
     return {
@@ -36,7 +37,7 @@ export default {
   methods:{
     hanclick(e){
       // console.log(e.target.innerText);
-      this.$emit('hanclick',e.target.innerText)
+     this.$emit('hanclick',e.target.innerText)
     },
     anxia(){
       this.switch = true
@@ -54,6 +55,10 @@ export default {
     likai(){
       this.switch = false
     }
+  },
+  mounted () {
+    console.log(pub);
+    
   }
 }
 </script>

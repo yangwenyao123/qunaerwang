@@ -1,7 +1,8 @@
 <template>
   <div class="content">
-    <cityH ></cityH>
+    <cityH :cities="cities"></cityH>
     <cityList :cities="cities" :hotCities="hotCities" :letter="letter"></cityList>
+  
     <flex :cities="cities" @hanclick="hanclick" ></flex>
   </div>
 </template>
@@ -14,14 +15,13 @@
       return {
         hotCities:[],
         cities:null,
-         letter:''
-
+        letter:''
       }
     },
     methods:{
-      hanclick(e){
-        this.letter = e
-      } 
+     hanclick (e) {
+       this.letter = e
+     }
     },
     components:{
       cityH,
@@ -36,12 +36,7 @@
           
           this.hotCities = data.hotCities 
           this.cities = data.cities
-         
-          
-          
         }
-       
-        
       })
     }
   }

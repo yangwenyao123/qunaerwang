@@ -18,10 +18,18 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   props:{
-    city:String
-  }
+    
+  },
+  mounted(){
+   
+  },
+  computed:{
+     ...mapState(["city"])
+  },
+ 
 }
 </script>
 <style scoped>

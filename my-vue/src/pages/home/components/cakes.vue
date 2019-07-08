@@ -2,7 +2,11 @@
   <div class="content">
       <div class="title">热销推荐</div>
       <ul>
-        <li v-for="(item,index) in recommendList" :key="index">
+        <router-link tag="li"
+         v-for="(item,index) in recommendList" 
+         :key="index"
+         :to="/details/+item.id"
+         >
           <div class="left">
             <img :src="item.imgUrl" alt="">
           </div>
@@ -11,7 +15,7 @@
             <p class="margin-bottom">{{item.desc}}</p>
             <div class="margin-top"><span class="price">￥</span><strong>99</strong><span class="qi">起</span></div>
           </div>
-        </li>
+        </router-link>
       </ul>
       <div class="gengduo">查看所有</div>
   </div>

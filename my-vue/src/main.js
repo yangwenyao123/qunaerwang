@@ -9,18 +9,23 @@ import './assets/style/iconFont/iconfont.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import axios from 'axios'
+import store from './store'
+
 
 
 import fastClick from 'fastclick'
 Vue.use(VueAwesomeSwiper)
 
 Vue.prototype.$axios = axios
+
+
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

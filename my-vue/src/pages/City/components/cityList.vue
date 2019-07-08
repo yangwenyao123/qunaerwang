@@ -1,71 +1,81 @@
 <template>
-<div>
-  <div class="content" ref="cityList">
-    <div>
-      <div class="top">
-        <div class="title">您的位置</div>
-        <div class="bottom">
-          <button>广州</button>
+  <div>
+    <div class="content" ref="cityList">
+      <div>
+        <div class="top">
+          <div class="title">您的位置</div>
+          <div class="bottom">
+            <button>{{this.city}}</button>
+          </div>
         </div>
-      </div>
 
-      <div class="list">
-        <div class="title">热门城市</div>
-        <div class="time">
-          <button v-for="(item,index) in hotCities" :key="index">{{item.name}}</button>
+        <div class="list">
+          <div class="title">热门城市</div>
+          <div class="time">
+            <button
+              v-for="(item,index) in hotCities"
+              :key="index"
+              @click="oNcity(item.name)"
+            >{{item.name}}</button>
+          </div>
         </div>
-      </div>
-      <div class="cityList">
-        <div class="tiem" v-for="(item,key) in cities" :key="key" :ref="key">
-          <div class="title">{{key}}</div>
-          <ul>
-            <li v-for="(item,index) in item" :key="index">{{item.name}}</li>
-         
-          </ul>
+        <div class="cityList">
+          <div class="tiem" v-for="(item,key) in cities" :key="key" :ref="key">
+            <div class="title">{{key}}</div>
+            <ul>
+              <li v-for="(item,index) in item" :key="index" @click="oNcity(item.name)">{{item.name}}</li>
+            </ul>
+          </div>
         </div>
-      
       </div>
     </div>
   </div>
- 
-</div>
 </template>
 <script>
+  import Bscroll from "better-scroll";
+  import { mapState, mapMutations } from 'vuex'
 
-import Bscroll from "better-scroll";
-export default {
-  props:{
-    hotCities:Array,
-    cities:Object,
-    letter:String
-  },
+  export default {
+    props: {
+      hotCities: Array,
+      cities: Object,
+      letter: String
+    },
 
     data() {
       return {
-        city: [
-          { name: "广州" },
-          { name: "广州" },
-          { name: "广州" },
-          { name: "广州" },
-          { name: "广州" },
-          { name: "广州" }
-        ]
+       
       };
+      
     },
+    methods: {
+      oNcity(e) {
+        this.$store.commit("oNcity", e);
+        this.$router.push("/");
+        // this.oNcity(e)  // 调用下变映射过来的 oNcity 方法并给它传个参
+      },
+      // ...mapMutations(["oNcity"])  // 使用vuex 的快捷方法导致不能跳转路由
+
+       
+    },
+
     mounted() {
       this.scroll = new Bscroll(this.$refs.cityList);
+   
     },
     watch: {
-      letter () {
-        if(this.letter){
-            var element = this.$refs[this.letter][0]
-            this.scroll.scrollToElement(element)
-        
+      letter() {
+        if (this.letter) {
+          var element = this.$refs[this.letter][0];
+          this.scroll.scrollToElement(element);
         }
+      },
+
       
-      }
+    },
+    computed:{
+      ...mapState(["city"])
     }
-    
   };
 </script>
 <style scoped>
